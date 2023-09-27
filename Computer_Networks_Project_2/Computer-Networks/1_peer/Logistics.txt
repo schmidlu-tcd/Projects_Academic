@@ -1,0 +1,7 @@
+Current Supply Chain Status: EMPTY
+-Request Supply Delivery 2023.04.06
+Supplies Needed:
+  ()Apples
+  ()Oranges
+  ()Water
+@

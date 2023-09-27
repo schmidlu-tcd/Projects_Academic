@@ -1,0 +1,5 @@
+Medical Team:
+-8 Personnel
+-Partially Equipped
+-Needs more medical tools
+@

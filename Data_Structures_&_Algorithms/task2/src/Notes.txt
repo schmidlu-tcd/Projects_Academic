@@ -1,0 +1,132 @@
+int main()
+{
+	bstdb_init();
+
+	int IDs[20];
+
+	IDs[0] = bstdb_add("a",10);
+	IDs[1] = bstdb_add("b",20);
+	IDs[2] = bstdb_add("c",30);
+	IDs[3] = bstdb_add("d",40);
+	IDs[4] = bstdb_add("e",50);
+	IDs[5] = bstdb_add("f",60);
+	IDs[6] = bstdb_add("g",70);
+	IDs[7] = bstdb_add("h",80);
+	IDs[8] = bstdb_add("i",90);
+	IDs[9] = bstdb_add("j",100);
+	IDs[10] = bstdb_add("k",110);
+	IDs[11] = bstdb_add("l",120);
+	IDs[12] = bstdb_add("m",130);
+	IDs[13] = bstdb_add("n",140);
+	IDs[14] = bstdb_add("o",150);
+	IDs[15] = bstdb_add("p",160);
+	IDs[16] = bstdb_add("q",170);
+	IDs[17] = bstdb_add("r",180);
+	IDs[18] = bstdb_add("s",190);
+
+	tree_print_sorted(root);
+	printf("\n\n");
+
+	char *temp;
+	int searchedID;
+
+	searchedID = 15;
+	temp = bstdb_get_name(searchedID);
+	if(temp != NULL)
+	{
+		printf("%s in tree\n", temp);
+	}
+	else
+	{
+		printf("%d not in tree\n", searchedID);
+	}
+
+	searchedID = 10;
+	temp = bstdb_get_name(searchedID);
+	if(temp != NULL)
+	{
+		printf("%s in tree\n", temp);
+	}
+	else
+	{
+		printf("%d not in tree\n", searchedID);
+	}
+
+	searchedID = 25;
+	temp = bstdb_get_name(searchedID);
+	if(temp != NULL)
+	{
+		printf("%s in tree\n", temp);
+	}
+	else
+	{
+		printf("%d not in tree\n", searchedID);
+	}
+
+
+	int Wcount;
+	searchedID = 12;
+	Wcount = bstdb_get_word_count(searchedID);
+	if(Wcount != -1)
+	{
+		printf("%d in tree\n", Wcount);
+	}
+	else
+	{
+		printf("%d not in tree\n", searchedID);
+	}
+
+	
+	searchedID = 50;
+	Wcount = bstdb_get_word_count(searchedID);
+	if(Wcount != -1)
+	{
+		printf("%d in tree\n", Wcount);
+	}
+	else
+	{
+		printf("%d not in tree\n", searchedID);
+	}
+
+	return 0;
+}
+
+
+
+//=== FUNCTION ================================================================
+//         Name: findMaxLevel
+//  Description: Goes through the tree to find max level
+//=============================================================================
+int findMaxLevel(Tree_Node *node)
+{
+	if(node == NULL)
+	{
+		return 0;
+	}
+	else if(node->left == NULL && node->right == NULL)
+	{
+		return node->level;
+	}
+	else if(node->left == NULL && node->right != NULL)
+	{
+		return findMaxLevel(node->right);
+	}
+	else if(node->left != NULL && node->right == NULL)
+	{
+		return findMaxLevel(node->left);
+	}
+	else
+	{
+		//recursively finds max levels of each side
+		int maxLeft = findMaxLevel(node->left);
+		int maxRight = findMaxLevel(node->right);
+		if(maxLeft > maxRight)
+		{
+			return maxLeft;
+		}
+		else
+		{
+			return maxRight;
+		}
+	}
+}

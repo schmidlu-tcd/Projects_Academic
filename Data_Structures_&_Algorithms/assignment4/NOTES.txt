@@ -1,0 +1,40 @@
+// >t2.c
+//
+//  #####  #####  #     #  ####    ###   ####     #    ####   #   #
+//    #    #      ##   ##  #   #  #   #  #   #   # #   #   #  #   #
+//    #    ###    # # # #  ####   #   #  ####    # #   ####    # #
+//    #    #      #  #  #  #      #   #  #  #   #####  #  #     #
+//    #    #####  #     #  #       ###   #   #  #   #  #   #    #
+//
+//                              ||
+//                            __||__
+//                            \    /
+//                             \  /
+//                              \/
+
+int main()
+{
+    load_vertices("vertices.csv");
+    load_edges("edges.csv");
+
+/*
+    for(int i = 0; i < 10; i++)
+    {
+        if(Graph[i] != NULL)
+        {
+            printf("%d", Graph[i]->stopNumber);
+            Path *temp = Graph[i]->next;
+            while(temp != NULL)
+            {
+                printf(" -> %d dist(%d)", Graph[temp->node]->stopNumber, temp->weight);
+                temp = temp->next;
+            }
+            printf("\n");
+        }
+    }
+    */
+
+    shortest_path(2, 10);
+
+    return 0;
+}

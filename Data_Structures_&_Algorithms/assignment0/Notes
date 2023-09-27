@@ -1,0 +1,25 @@
+/* NOTES
+part 2 and 3:
+
+Method 1:
+1 - Get the file.
+2 - Read file and put characters until "\n" into row array.
+3 - From each row, put characters into a field array until a ","
+4 - Print out the field.
+5 - Repeat 2 to 4 in a loop until EOF.
+
+Method 2:
+1 - Get the file.
+2 - Create while loop until end of file
+3 - Create loop for line
+4 - If '\0' break the loop
+5 - If ',' print a line "\n"
+6 - Else print the character
+
+part 4:
+
+Method 1:
+1 - Get the file.
+2 - Create while loop for the file.
+3 - For loop to go through each info type that gets reset.
+*/

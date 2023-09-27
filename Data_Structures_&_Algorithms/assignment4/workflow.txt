@@ -1,0 +1,83 @@
+void shortest_path(int startNode, int endNode)
+{
+    int dist[maxNodes];
+    int prev[maxNodes];
+    for(int i = 0; i < maxNodes; i++)
+    {
+        dist[i] = infinity;
+        prev[i] = infinity;
+    }
+
+
+    dist[startNode] = 0;
+    //dist[0] = 0
+
+    prev[startNode] = startNode;
+    //prev[0] = 0
+
+    int currentNode = startNode;
+    //current = 0;
+
+    heap *H = NULL;
+    heap *visited = NULL;
+
+    H = addToHeap(H, startNode, 0, 0);
+    //H[0]-> node = 0, from = 0, totalDistance = 0
+
+    Graph[startNode]->visited = 1;
+    //Graph[0]->visited = 1;
+
+    while(H->node != endNode)
+    //while H[0] != 5
+    {
+        currentNode = H->node;
+        <i1> currentNode = 0
+
+        Path *temp = Graph[H->node]->next;
+        <i1> temp = &1
+
+        while(temp != NULL)
+        <i1> &1 != NULL
+        {
+            if(findInHeap(visited, temp->node) == 0)
+            <i1> &1 is not in visited
+            {
+                dist[temp->node] = (temp->weight) + (H->totalDistance);
+                <i1> dist[1] = 4 + 0
+
+                prev[temp->node] = currentNode;
+                <i1> prev[1] = 0
+
+                visited = addToHeap(visited, H->node, currentNode, H->totalDistance);`
+                <i1> visited[1]-> node = 0, from = 0, totalDistance = 0
+
+                //adds to heap
+                H = addToHeap(H, temp->node, currentNode, ((temp->weight)+(H->totalDistance)));
+                <i1> H[1]-> node = 1, 
+
+
+                H = removeFromHeap(H, currentNode);
+            }
+            temp = temp->next;
+        }
+
+        //clear visited and H memory usage
+    }
+    int min = infinity;
+    int minNode = 0;
+    for(int i = 0; i < maxNodes; i++)
+    {
+        if(dist[i] < min)
+        {
+            min = dist[i];
+            minNode = i;
+        }
+    }
+    currentNode = minNode;
+    printf(" %d ", currentNode);
+    while(currentNode != startNode)
+    {
+        currentNode = prev[currentNode];
+        printf(" %d ", currentNode);
+    }
+}
